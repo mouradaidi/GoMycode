@@ -1,0 +1,32 @@
+1/ Principaux différences entre le modèle TCP/IP et le modèle OSI :
+-	Le Modèle TCP/IP est définit sur les 4 premières couche du modèle OSI et la septième couche
+-	Le host réseau est définit sur la première et la deuxième couche du modèle OSI(Couche physique et couche liaison)
+-	Le Protocol IP est définis sur la troisième couche du modèle OSI(la couche réseau)
+-	Le Protocole TCP est définis comme étant la quatrième couche du modèle OSI(Couche Transport)
+-	La couche Applications est définit sur la septième couche du modèle OSI(couche application) en utilisant des protocoles tel que http et HTTPS etc.
+
+2/ En cliquant sur un lien web sur un host :
+1-	Le host transmet un paquet contenant l’adresse IP du site web et l’adresse du port (8.8.8.8 : Adresse google.com et le port 80)
+2-	L’équipement frontière(Routeur) consulte la Table NAT masque l’adresse IP du hôte émetteur par une adresse publique et masque le numéro de port 
+et transmet le paquet à l’adresse sollicitée (exp :8.8.8.8)
+
+3/ Un nom de domaine :
+C’est un masque réseaux qui identifie une plage d’adresse IP reliés par un serveur appelé Serveur DNS
+Un DN :
+C’est une correspondance entre l’adresse IP d’un host et son nom sur le réseau : IP@/Host_Name (exp 8.8.8.8/Google.com 4.4.4.4/google.com)
+
+4/ L’interconnexion entre un hôte est un serveur sur le réseau :
+Elle est assurée par le protocole TCP, ce dernier prend en charge les paquets livrés par le protocole IP du hôte 
+et les encapsules dans des blocs de données (segments) auxquels on a ajouté des données concernant le contrôle de données, l’acquittement, la synchronisation.
+
+5/ Comment transférer des données sur Internet (paquet TCP) :
+Le Protocole IP assure seulement l’acheminement des paquets qui peuvent arriver à destination en désordre ou avec un contenu altéré, 
+c’est le protocole TCP qui ne s’occupes pas de leurs régularité et de leurs ordre et de la synchronisation de en adaptant la taille des segments 
+avec le débit de la connexion entre le hôte et le serveur
+Pour cela le Protocole TCP charge les paquets délivrés par le protocole IP dans un segment de données et ajoute une entête contenant des bits de :
+-	Contrôle : pour s’assurer de la véracité du paquet transmis
+-	Ordre : pour garder l’ordre des paquets 
+-	Synchronisation : pour adapter le débit de transfert à la capacité du serveur
+-	Priorité : pour prioriser les demandes urgentes
+-	-etc.
+
